@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account Book - Maiko Matsuoka</title>
+    <script src="account_book.js" defer></script>
+</head>
+<body>
+    <section>
+        <h1>My Account Book</h1>
+        
+        <form id="form" action="php/insert.php" method="post">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br>
+        
+            <label for="item">Item:</label>
+            <input type="text" id="item" name="item" required><br>
+        
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" required><br>
+        
+            <label for="type">Type:</label>
+            <input type="radio" id="type" name="type" value="expenditure" required>&nbsp; Expenditure &nbsp;
+            <input type="radio" id="type" name="type" value="income" required>&nbsp; Income &nbsp;
+            <br>
+        
+            <input id="submit" type="submit" value="Enter">
+        </form>
+    </section>
+
+    <section id="display"></section>
+</body>
+</html>
