@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account Book - Maiko Matsuoka</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
     <script src="account_book.js" defer></script>
 </head>
 <body>
-    <section>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+
+    <header>
         <h1>My Account Book</h1>
-        
+        <nav>
+            <a href="#form">Entry</a>
+            <a href="#display">List</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Entry</h2>
         <form id="form" action="php/insert.php" method="post">
+            <input type="hidden" id="hiddenId" name="id">
+
             <label for="date">Date:</label>
             <input type="date" id="date" name="date" required><br>
         
@@ -19,10 +34,14 @@
         
             <label for="price">Price:</label>
             <input type="number" id="price" name="price" step="0.01" required><br>
-        
-            <label for="type">Type:</label>
-            <input type="radio" id="type" name="type" value="expenditure" required>&nbsp; Expenditure &nbsp;
-            <input type="radio" id="type" name="type" value="income" required>&nbsp; Income &nbsp;
+
+            <label>Type:</label>
+            <div class="radio-container">
+                <input type="radio" id="expenditure" name="type" value="expenditure" required>
+                <label for="expenditure">Expenditure</label>
+                <input type="radio" id="income" name="type" value="income" required>
+                <label for="income">Income</label>
+            </div>
             <br>
         
             <input id="submit" type="submit" value="Enter">
