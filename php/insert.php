@@ -59,7 +59,13 @@
 
             //if no updated rows, throw an exception
             if (mysqli_stmt_affected_rows($stmt) === 0) {
-                throw new Exception("No rows updated");
+                $results[] = [
+                    "date" => $date,
+                    "item" => $item,
+                    "price" => $price,
+                    "type" => $type,
+                ];
+                return $results;
             }
 
             //add updated rows to the results array

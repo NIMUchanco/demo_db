@@ -1,3 +1,5 @@
+let data = [];
+
 const fetchAccountBook = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
@@ -6,6 +8,9 @@ const fetchAccountBook = async (url) => {
 
 //call the function to fetch the data
 fetchAccountBook('php/select.php');
+
+//get the form element
+const form = document.querySelector('#form');
 
 const displayData = (data) => {
     const table = document.createElement("table");
@@ -27,7 +32,7 @@ const displayData = (data) => {
     display.appendChild(table);
 
     data.forEach(entry => {
-        //console.log(entry);
+        // Create table row
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${entry.date}</td>
@@ -41,11 +46,12 @@ const displayData = (data) => {
 
         //edit btn
         const editLink = row.querySelector('.edit-link');
-        editLink.addEventListener('click', async (event) => {
+        editLink.addEventListener('click', (event) => {
             event.preventDefault();
             const id = event.target.getAttribute('data-id');
-            const response = await fetch('php/select.php');
-            const data = await response.json();
+
+            // const response = await fetch('php/select.php');
+            // const data = await response.json();
             console.log(id);
 
             //find the entry with the id
@@ -58,7 +64,19 @@ const displayData = (data) => {
                 document.querySelector(`input[name="type"][value="${selectedEntry.type}"]`).checked = true;
             }
             display.innerHTML = '';
+
+            // Create a refresh button element
+            const refreshButton = document.createElement('a');
+            refreshButton.innerHTML = '<i class="fa-solid fa-left-long"></i>&nbsp; Go back';
+
+            // Add an event listener to the refresh button
+            refreshButton.addEventListener('click', () => {
+                fetchAccountBook('php/select.php');
+                form.reset();
+            });
+            display.appendChild(refreshButton);
         });
+
 
         //delete btn
         const deleteLink = row.querySelector('.delete-link');
@@ -85,7 +103,6 @@ const displayData = (data) => {
 }
 
 //send form data to the server
-const form = document.querySelector('#form');
 form.addEventListener('submit', async (event) => {
     // Prevent the default form submission behavior
     event.preventDefault();
