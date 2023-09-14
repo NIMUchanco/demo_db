@@ -7,7 +7,9 @@
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" as="style" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <script src="js/account_book.js" defer></script>
+    <script src="js/design.js" defer></script>
 </head>
 <body>
 <div class="bg"></div>
@@ -18,6 +20,7 @@
         <h1>My Account Book</h1>
         <nav>
             <a href="#form">Entry</a>
+            <a href="#filter">Filter</a>
             <a href="#display">List</a>
         </nav>
     </header>
@@ -47,6 +50,24 @@
         
             <input id="submit" type="submit" value="Enter">
         </form>
+    </section>
+
+    <section id="filter">
+        <h2>Filter</h2>
+        <article class="filter-wrap">
+            <label>Month:</label>
+            <label>Year:</label>
+            <select id="month"></select>
+            <select id="year"></select>
+            <div class="filter-radio">
+                <input type="radio" id="Expenditure" name="entryType" value="expenditure">
+                <label for="Expenditure">Expenditure</label>
+                <input type="radio" id="Income" name="entryType" value="income">
+                <label for="Income">Income</label>
+            </div>
+            <a id="filterBtn"><i class="fa-solid fa-filter"></i> Filter data</a>
+            <a id="clearFilter"><i class="fa-solid fa-broom"></i> Clear filter</a>
+        </article>
     </section>
 
     <section id="display"></section>

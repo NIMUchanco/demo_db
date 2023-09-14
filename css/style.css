@@ -15,7 +15,7 @@ body {
 }
 
 section {
-  max-width: 1200px;
+  max-width: 1000px;
   width: 90%;
   margin: 0 auto;
   padding: 1.5em 0;
@@ -53,18 +53,18 @@ h1 {
 
 nav {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1em;
 }
 
 a {
   text-decoration: none;
   color: #f3b080;
+  transition: .3s;
 }
 
 nav a:hover {
-  color: #fff;
-  transition: .3s;
+  color: #E09D9D;
 }
 
 h2 {
@@ -117,13 +117,13 @@ form {
   margin: 0 auto;
 }
 
-form label {
+label {
   font-family: 'Akaya Kanadaka', cursive;
   color: #666;
-  margin-bottom: .1em;
+  margin-bottom: .2em;
 }
 
-form input {
+input, select {
   font-size: 1.1rem;
   height: 50px;
   border: none;
@@ -174,13 +174,81 @@ form input[type="submit"] {
   font-weight: bold;
 }
 
-form #submit:hover {
+form #submit:hover, #filterBtn:hover, #clearFilter:hover {
   background-color: #666;
   color: #DDE1EE;
 }
 
-form #submit:active {
+form #submit:active, #filterBtn:active, #clearFilter:active {
   transform: scale(.9);
+}
+
+/* FILTER */
+.filter-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5em;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.filter-wrap label {
+  margin-bottom: -.3em;
+}
+
+.filter-radio {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column: 1/-1;
+}
+
+.filter-radio label {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: block;
+  width: 150px;
+  background: #c8eac3;
+  color: #666;
+  font-weight: bold;
+  padding: 1em;
+  margin: 1em auto;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.filter-radio label:hover {
+  background: #dbf6d7;
+}
+
+.filter-radio input:checked + label {
+  background: #B09DE5;
+  color: #FFF;
+}
+
+#filter input {
+  display: none;
+}
+
+#filterBtn, #clearFilter {
+  display: inline-block;
+  width: 150px;
+  height: 45px;
+  padding: .5em;
+  text-align: center;
+  background-color: #DDE1EE;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  color: #666;
+  box-shadow: 0 8px 8px -4px rgb(138, 138, 138);
+  text-transform: capitalize;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+  justify-self: center;
 }
 
 /* DISPLAY TABLE */
@@ -248,16 +316,20 @@ form #submit:active {
 #display table .btn {
   color:#666;
   border-radius: 10px;
-  padding: .3em;
   transition: .3s;
+  display: inline-block;
 }
 
 .edit-link {
   background-color: #C4E6FF;
+  transform: rotate(90deg);
+  padding: .3em;
 }
 
 .delete-link {
   background-color: #E09D9D;
+  transform: rotate(180deg);
+  padding: .1em .44em .2em .44em;
 }
 
 .edit-link:hover {
@@ -276,100 +348,10 @@ form #submit:active {
   cursor: pointer;
 }
 
-/* RESPONSIVE */
-@media screen and (min-width:536px) {
-  header {
-    height: 55px;
-  }
-
-  h1, nav a, .radio-container label {
-    font-size: 1.3rem;
-  }
-
-  nav {
-    gap: 2em;
-  }
-
-  h2, form label {
-    font-size: 1.2rem;
-  }
-
-  #display table {
-    overflow-x: auto;
-    width: auto;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-}
-
-@media screen and (min-width:586px) {
-  #display table th, #display table td {
-    font-size: 1.1rem;
-    height: 40px;
-  }
-}
-
-@media screen and (min-width:666px) {
-  header {
-    height: 60px;
-  }
-
-  nav {
-    gap: 3em;
-  }
-
-  form #submit {
-    height: 55px;
-  }
-
-  #display table {
-    height: calc(100vh/2);
-  }
-
-  #display table th, #display table td {
-    font-size: 1.2rem;
-    height: 45px;
-  }
-
-  #display a {
-    font-size: 1.3rem;
-  }
-}
-
-@media screen and (min-width:766px) {
-  #display table th, #display table td {
-    font-size: 1.3rem;
-    height: 50px;
-    padding: .3em .5em;
-  }
-
-  #display a {
-    text-align: center;
-  }
-}
-
-@media screen and (min-width:966px) {
-  nav {
-    gap: 5em;
-  }
-
-  form input {
-    height: 55px;
-  }
-
-  form #submit {
-    height: 60px;
-  }
-
-  #display table th, #display table td {
-    padding: .3em 1em;
-  }
-
-  #display table tr td:nth-of-type(5) {
-    padding: .3em .5em .3em 1em;
-  }
-
-  #display table tr td:nth-of-type(6), #display table .btn {
-    padding: .3em .5em;
-  }
+#display p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: right;
+  color: #516dd1;
+  margin-top: 1em;
 }

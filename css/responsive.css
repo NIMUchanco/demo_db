@@ -1,0 +1,128 @@
+/* RESPONSIVE */
+@media screen and (min-width:536px) {
+    h2, form label {
+      font-size: 1.2rem;
+    }
+  
+    #display table {
+      overflow-x: auto;
+      width: auto;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+  
+  @media screen and (min-width:586px) {
+    header {
+        height: 55px;
+    }
+
+    h1, nav a, .radio-container label {
+        font-size: 1.3rem;
+    }
+
+    nav {
+        gap: 2em;
+    }
+    
+    #display table th, #display table td {
+      font-size: 1.1rem;
+      height: 40px;
+    }
+  }
+  
+  @media screen and (min-width:666px) {
+    header {
+      height: 60px;
+    }
+  
+    nav {
+      gap: 3em;
+    }
+  
+    form #submit {
+      height: 55px;
+    }
+
+    .filter-radio {
+        grid-column: 1;
+        gap: 1em;
+    }
+
+    .filter-radio label {
+        margin-bottom: 0;
+    }
+
+    #filterBtn {
+        margin-top: 1em;
+        justify-self: end;
+    }
+
+    #clearFilter {
+        grid-column: 2;
+        justify-self: end;
+    }
+  
+    #display table {
+      height: calc(100vh/2);
+    }
+  
+    #display table th, #display table td {
+      font-size: 1.2rem;
+      height: 45px;
+    }
+  
+    #display a {
+      font-size: 1.3rem;
+    }
+  }
+  
+  @media screen and (min-width:766px) {
+    #display table th, #display table td {
+      font-size: 1.3rem;
+      height: 50px;
+      padding: .3em .5em;
+    }
+  
+    #display a {
+      text-align: center;
+    }
+
+    #display p {
+        font-size: 1.3rem;
+    }
+  }
+  
+  @media screen and (min-width:966px) {
+    nav {
+      gap: 5em;
+    }
+  
+    form input {
+      height: 55px;
+    }
+  
+    form #submit {
+      height: 60px;
+    }
+  
+    #display table th, #display table td {
+      padding: .3em 1em;
+    }
+  
+    #display table tr td:nth-of-type(5) {
+      padding: .3em .5em .3em 1em;
+    }
+  
+    #display table tr td:nth-of-type(6) {
+      padding: .3em .5em;
+    }
+  
+    .edit-link {
+      padding: .3em .4em;
+    }
+  
+    .delete-link {
+      padding: .2em .45em .3em .45em;;
+    }
+  }
