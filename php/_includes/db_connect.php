@@ -2,8 +2,8 @@
 
     $host = "localhost:3306";
     $db = "maiko25_demo_db";
-    $user = "maiko25";
-    $pass = "Ojf9n140*";
+    $user = "maiko25_demo_db";
+    $pass = "0q?3y4Qv7";
 
     $link = mysqli_connect($host, $user, $pass, $db);
 

@@ -1,7 +1,11 @@
 /* RESPONSIVE */
 @media screen and (min-width:536px) {
-    h2, form label {
+    h2, form label, .filter-wrap label {
       font-size: 1.2rem;
+    }
+
+    .filter-radio label {
+      font-size: 1rem;
     }
   
     #display table {
